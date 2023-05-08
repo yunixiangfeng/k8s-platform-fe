@@ -55,7 +55,50 @@
         </el-menu>
       </el-aside>
       <el-container>
-        <el-header>Header</el-header>
+        <!-- header -->
+        <el-header class="header">
+          <el-row :gutter="20">
+            <el-col :span="1">
+              <!-- 折叠按钮 -->
+              <div class="header-collapse" @click="onCollapse">
+                <el-icon><component :is="isCollapse ? 'expand':'fold'" /></el-icon>
+              </div>
+            </el-col>
+            <el-col :span="10">
+              <!-- 面包屑 -->
+              <div class="header-breadcrumb">
+                <!-- separator 分隔符 -->
+                <el-breadcrumb separator="/">
+                  <!-- :to="{ path: '/' }"表示跳转到/路径 -->
+                  <el-breadcrumb-item :to="{ path: '/' }">工作台</el-breadcrumb-item>
+                  <!-- this.$route.matched 可以拿到当前页面的路由信息 -->
+                  <template v-for="(matched,m) in this.$route.matched" :key="m">
+                    <el-breadcrumb-item v-if="matched.name != undefined">
+                      {{ matched.name }}
+                    </el-breadcrumb-item>
+                  </template>
+                </el-breadcrumb>
+              </div>
+            </el-col>
+            <el-col class="header-menu" :span="13">
+              <!-- 用户信息 -->
+              <el-dropdown>
+                <!-- 头像及用户名 -->
+                <div class="header-dropdown">
+                  <el-image class="avator-image" :src="avator" />
+                  <span>{{ username }}</span>
+                </div>
+                <!-- 下拉框内容 -->
+                <template #dropdown>
+                  <el-dropdown-menu>
+                    <el-dropdown-item @click="logout()">退出</el-dropdown-item>
+                    <el-dropdown-item >修改密码</el-dropdown-item>
+                  </el-dropdown-menu>
+                </template>
+              </el-dropdown>
+            </el-col>
+          </el-row>
+        </el-header>
         <el-main>
           <router-view></router-view>
         </el-main>
@@ -173,4 +216,41 @@ export default {
 .aside-menu-childitem:hover {
   background-color: #142c4e ;
 }
+/* header的属性 */
+.header{
+  z-index: 1200;
+  line-height: 60px;
+  font-size: 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
+}
+/* 折叠按钮 */
+.header-collapse{
+  cursor: pointer;
+}
+/* 面包屑 */
+.header-breadcrumb{
+  padding-top: 0.9em;
+}
+/* 用户信息靠右 */
+.header-menu{
+  text-align: right;
+}
+/* 折叠属性 */
+.is-collapse {
+  display: none;
+}
+/* 用户信息下拉框 */
+.header-dropdown {
+  line-height: 60px;
+  cursor: pointer;
+}
+/* 头像 */
+.avator-image {
+  top: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
 </style>
