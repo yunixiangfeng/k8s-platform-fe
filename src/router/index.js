@@ -9,7 +9,7 @@ const routes = [
         path: '/home', //视图
         component: () => import('@/layout/Layout.vue'),
         icon: "odometer", //图标
-        meta: {title:"概要", requireAuth: false}, //定义meta元数据
+        meta: {title:"Layout", requireAuth: false}, //定义meta元数据, title:"概要"
         children: [
             {
                 path: '/home', //视图
@@ -24,6 +24,28 @@ const routes = [
     //     component: () => import('@/layout/Layout.vue'),
     //     icon: "odometer", //图标
     //     meta: {title:"Layout", requireAuth: false}, //定义meta元数据
+    // },
+    // {
+    //     path: '/workload',
+    //     component: Layout,
+    //     icon: "menu", //图标
+    //     meta: {title:"工作负载", requireAuth: false},
+    //     children: [
+    //         {
+    //             path: '/workload/deployment',
+    //             name: 'Deployment',
+    //             icon: "el-icons-s-data", //图标
+    //             meta: {title:"Deployment", requireAuth: true}, //定义meta元数据
+    //             component: () => import('@/views/workload/Deployment.vue')
+    //         },
+    //         {
+    //             path: '/workload/pod',
+    //             name: 'Pod',
+    //             icon: "el-icons-document-add", //图标
+    //             meta: {title:"Pod", requireAuth: true}, //定义meta元数据
+    //             component: () => import('@/views/workload/Pod.vue')
+    //         },
+    //     ]
     // },
     {
         path: '/404',
