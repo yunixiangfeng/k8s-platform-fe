@@ -1,2 +1,24 @@
 # k8s-platform-fe
-k8s管理系统项目的前端开发部分，在完成API接口的整体开发后，开始看手于前端部分，构建一个个功能页面，将管理系统平台化。
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
