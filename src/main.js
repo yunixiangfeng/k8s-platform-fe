@@ -7,6 +7,13 @@ import 'element-plus/dist/index.css'
 import * as ELIcons from '@element-plus/icons-vue'
 //引入路由配置和规则
 import router from "./router"
+//codemirror编辑器
+import { GlobalCmComponent } from "codemirror-editor-vue3";
+// 引入主题
+import 'codemirror/theme/idea.css'
+// 引入yaml
+import 'codemirror/mode/yaml/yaml.js'
+
 
 // 创建app实例
 const app = createApp(App)

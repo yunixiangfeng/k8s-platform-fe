@@ -99,10 +99,15 @@
             </el-col>
           </el-row>
         </el-header>
-        <el-main>
+        <el-main class="main">
+          <!-- 路由占位符，展示匹配到的路由的视图组件 -->
           <router-view></router-view>
         </el-main>
-        <el-footer>Footer</el-footer>
+        <!-- footer -->
+        <el-footer class="footer">
+          <el-icon style="width:2em;top:3px;font-size:18px"><place/></el-icon>
+          <a class="footer el-icon-place">Kubernetes 管理系统</a>
+        </el-footer>
       </el-container>
     </el-container>
   </div>
@@ -252,5 +257,14 @@ export default {
   border-radius: 50%;
   margin-right: 8px;
 }
-
+.main {
+  padding: 10px;
+}
+.footer {
+  z-index: 1200;
+  color: rgb(187, 184, 184);
+  font-size: 14px;
+  text-align: center;
+  line-height: 60px;
+}
 </style>
